@@ -11,6 +11,8 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\PermissionController;
 
 
 
@@ -21,6 +23,8 @@ Route::apiResource('company', CompanyController::class);
 Route::apiResource('state', StateController::class);
 Route::apiResource('city', CityController::class);
 Route::apiResource('branch', BranchController::class);
+Route::apiResource('role', RoleController::class);
+Route::apiResource('permission', PermissionController::class);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 

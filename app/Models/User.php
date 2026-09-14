@@ -18,7 +18,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 class User extends Authenticatable implements MustVerifyEmail
 {
     /** @use HasFactory<UserFactory> */
-    use HasApiTokens,HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * Get the attributes that should be cast.
@@ -32,7 +32,12 @@ class User extends Authenticatable implements MustVerifyEmail
             'password' => 'hashed',
         ];
     }
-    public function branches(){
+    public function branches()
+    {
         return $this->belongsToMany(Branch::class, 'user_branches');
+    }
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'user_roles');
     }
 }
